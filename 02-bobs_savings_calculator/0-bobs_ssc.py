@@ -1,4 +1,5 @@
-#Greet Bob, then calculate his yearly savings using his weekly income information
+#Greet Bob, then calculate his annual savings using the following income information:
+#hourly_wage, hours_per_week, spend_per_week
 greeting = "Hello "
 name = "Bob"
 
