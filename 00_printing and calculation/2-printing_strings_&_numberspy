@@ -1,0 +1,4 @@
+#write a program that uses print twice
+#first printing a string, then calculating and printing a number
+print("I will calculate 865 * 412 and print it on the following line")
+print(856*412)
