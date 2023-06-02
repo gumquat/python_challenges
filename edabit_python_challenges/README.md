@@ -8,3 +8,6 @@ Create a function that takes a number as an argument, increments the number by +
 
 ## 02 minutes_to_seconds
 Write a function that takes an integer minutes and converts it to seconds.
+
+## 09 return_str_as_int
+Create a function that takes a string and returns it as an integer.
