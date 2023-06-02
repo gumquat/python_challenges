@@ -11,3 +11,6 @@ Write a function that takes an integer minutes and converts it to seconds.
 
 ## 09 return_str_as_int
 Create a function that takes a string and returns it as an integer.
+
+## 17 Return the First Element in a List
+Create a function that takes a list containing only numbers and return the first element.
