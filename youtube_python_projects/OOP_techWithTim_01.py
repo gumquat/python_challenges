@@ -1,5 +1,3 @@
-#Object oriented programming in python
-
 class Dog():
 
     def __init__(self, name, age, legs, tail):
