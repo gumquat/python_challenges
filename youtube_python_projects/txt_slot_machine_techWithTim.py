@@ -68,7 +68,9 @@ def get_bet():
 def get_slot_machine_spin(rows, cols, symbols):
     all_symbols = []
     for symbol, symbol_count in symbols.items():
-        for _ in range(symbol_count): # the underscore is called an anonymous variable, we dont care about it
+        for _ in range(symbol_count): 
+            # the above underscore is an 'anonymous variable', 
+            # for counting & not needing to use a real variable
             all_symbols.append(symbol)
 
 def main():
