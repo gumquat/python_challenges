@@ -93,9 +93,11 @@ def print_slot_machine(columns): #prints thru each column of our slot machine
     for row in range(len(columns[0])):
         for i, column, in enumerate(columns):
             if i != len(columns) - 1:
-                print(columns[row], "|")
+                print(columns[row], end=" | ")
             else:
-                print(columns[row])
+                print(columns[row], end="")
+        print()
+
 
 def main():
     balance = deposit()
