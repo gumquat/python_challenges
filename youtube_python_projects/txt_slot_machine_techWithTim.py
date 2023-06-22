@@ -11,6 +11,7 @@ get_number_of_lines: gets the number of lines the user is betting on. accpets di
 get_bet: takes user imput. accepts bet amounts mutiplied by lines 
         to fit bet allowance, based on deposited money.
 """
+import random
 
 MAX_LINES = 3
 MAX_BET = 100
@@ -71,7 +72,30 @@ def get_slot_machine_spin(rows, cols, symbols):
         for _ in range(symbol_count): 
             # the above underscore is an 'anonymous variable', 
             # for counting & not needing to use a real variable
-            all_symbols.append(symbol)
+            all_symbols.append(symbol) 
+    
+    columns = [] #define an empty list named 'columns', that will hold all 3 columns we are about to make
+
+    for _ in range(cols): # this will generate an empty column for each column we need (this loops 3 times)
+        current_symbols = all_symbols[:] # a list that gets filled with the right number of symbols from all_symbols
+                                        #the '[:]' at the end copies all data from one list to another
+        buffer_list = [] # an empty list to hold the symbols we are about to randomly pick
+        
+        for _ in range(rows): #loop thru the number of values we need to generate (number of rows)
+            value = random.choice(current_symbols) # picks a random value from our copid symbol list
+            current_symbols.remove(value) # remove the picked value from the list so we dont pick it again 
+            buffer_list.append(value) # add the picked value to the current column being generated
+
+        columns.append(buffer_list) #adds the symbol-filled columns from the buffer_list to 'columns' list
+    return columns # returns all three columns with symbols into the above 'columns' list
+
+def print_slot_machine(columns): #prints thru each column of our slot machine
+    for row in range(len(columns[0])):
+        for i, column, in enumerate(columns):
+            if i != len(columns) - 1:
+                print(columns[row], "|")
+            else:
+                print(columns[row])
 
 def main():
     balance = deposit()
@@ -88,6 +112,8 @@ def main():
 
     print(f"You are betting ${bet} on {lines} lines. Total bet is: ${total_bet}")
 
+    slots = get_slot_machine_spin(ROWS, COLS, symbol_count)
+    print_slot_machine(slots)
 
 """
 runs the code upon call of this file
