@@ -26,6 +26,12 @@ symbol_count = {
     "C": 6,
     "D": 8
 }
+symbol_value = {
+    "A": 5,
+    "B": 4,
+    "C": 3,
+    "D": 2
+}
 
 def deposit():
     while True:
@@ -66,6 +72,18 @@ def get_bet():
             print("Please enter a valid bet amount: ")
     return amount
 
+def check_winnings(columns, lines, bet, values):
+    winnings = 0
+    for line in range(lines):
+        symbol = columns[0][line]
+        for column in columns:
+            symbol_to_check = column[line]
+            if symbol != symbol_to_check:
+                break
+            else:
+                winnings += values[symbol] * bet
+    return winnings
+
 def get_slot_machine_spin(rows, cols, symbols):
     all_symbols = []
     for symbol, symbol_count in symbols.items():
@@ -93,9 +111,9 @@ def print_slot_machine(columns): #prints thru each column of our slot machine
     for row in range(len(columns[0])):
         for i, column, in enumerate(columns):
             if i != len(columns) - 1:
-                print(columns[row], end=" | ")
+                print(column[row], end=" | ")
             else:
-                print(columns[row], end="")
+                print(column[row], end="")
         print()
 
 
@@ -116,6 +134,8 @@ def main():
 
     slots = get_slot_machine_spin(ROWS, COLS, symbol_count)
     print_slot_machine(slots)
+    winnings = check_winnings(slots, lines, bet, symbol_value)
+    print(f"You won ${winnings}")
 
 """
 runs the code upon call of this file
